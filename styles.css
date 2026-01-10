@@ -81,7 +81,7 @@ body {
     height: 180px;
     width: auto;
     display: block;
-    padding: 10px 0 10px 60px;
+    padding: 10px 0 10px 20px;
     margin: 0;
     flex-shrink: 0;
 }
