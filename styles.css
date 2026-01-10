@@ -72,6 +72,10 @@ body {
     transition: var(--transition);
 }
 
+.navbar .container {
+    padding: 0 20px;
+}
+
 .nav-wrapper {
     display: flex;
     justify-content: space-between;
