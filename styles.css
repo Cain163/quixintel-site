@@ -81,6 +81,12 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 0;
+    height: 180px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
 }
 
 .logo-image {
@@ -92,6 +98,7 @@ body {
     display: flex;
     list-style: none;
     gap: 2rem;
+    line-height: 1;
 }
 
 .nav-link {
@@ -101,6 +108,7 @@ body {
     transition: var(--transition);
     position: relative;
     padding: 0;
+    line-height: 1;
 }
 
 .nav-link::after {
