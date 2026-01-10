@@ -74,14 +74,14 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 20px;
+    padding: 0 100px 0 20px;
 }
 
 .logo-image {
     height: 180px;
     width: auto;
     display: block;
-    padding: 10px 0 0 20px;
+    padding: 10px 0 10px 20px;
     margin: 0;
     flex-shrink: 0;
 }
