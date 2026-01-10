@@ -76,7 +76,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0.5rem 0 0.25rem 0;
+    padding: 0.1rem 0;
 }
 
 .logo-image {
@@ -608,7 +608,7 @@ section {
 
 .footer-logo-image {
     height: 70px;
-    margin-bottom: 0.25rem;
+    margin-bottom: 0.1rem;
 }
 
 .footer-description {
