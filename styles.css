@@ -76,11 +76,11 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 0;
+    padding: 0.5rem 0 0.25rem 0;
 }
 
 .logo-image {
-    height: 120px;
+    height: 180px;
     width: auto;
 }
 
