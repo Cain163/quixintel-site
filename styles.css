@@ -86,13 +86,18 @@ body {
 }
 
 .logo {
-    display: flex;
-    align-items: center;
+    display: block;
+    line-height: 0;
+    padding: 0;
+    margin: 0;
 }
 
 .logo-image {
     height: 180px;
     width: auto;
+    display: block;
+    padding: 0;
+    margin: 0;
 }
 
 .nav-menu {
