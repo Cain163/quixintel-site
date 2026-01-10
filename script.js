@@ -4,29 +4,89 @@ const navLinks = document.querySelectorAll('.nav-link');
 const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
 const navMenu = document.querySelector('.nav-menu');
 
-// Navbar scroll effect
+// Constants
+const NAVBAR_HEIGHT_DESKTOP = 120;
+const NAVBAR_HEIGHT_MOBILE = 80;
+const SCROLL_THRESHOLD = 50;
+
+// Debounce utility
+function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+        const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
+}
+
+// Hide navbar on scroll down, show on scroll up
+let lastScrollTop = 0;
+let isNavbarHidden = false;
+
 window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) {
-        navbar.classList.add('scrolled');
-    } else {
-        navbar.classList.remove('scrolled');
+    const scrollTop = window.scrollY;
+
+    // Don't hide if near top of page
+    if (scrollTop < SCROLL_THRESHOLD) {
+        if (isNavbarHidden) {
+            navbar.classList.remove('nav-hidden');
+            isNavbarHidden = false;
+        }
+        lastScrollTop = scrollTop;
+        return;
+    }
+
+    // Determine scroll direction
+    if (scrollTop > lastScrollTop && !isNavbarHidden) {
+        // Scrolling DOWN - hide navbar
+        navbar.classList.add('nav-hidden');
+        isNavbarHidden = true;
+    } else if (scrollTop < lastScrollTop && isNavbarHidden) {
+        // Scrolling UP - show navbar
+        navbar.classList.remove('nav-hidden');
+        isNavbarHidden = false;
+    }
+
+    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+}, { passive: true });
+
+// Close mobile menu when scrolling
+window.addEventListener('scroll', () => {
+    if (window.innerWidth <= 768 && navMenu.classList.contains('active')) {
+        closeMobileMenu();
+    }
+}, { passive: true });
+
+// Mobile menu toggle with ARIA and CSS classes
+mobileMenuToggle?.addEventListener('click', () => {
+    const isOpen = navMenu.classList.toggle('active');
+    navbar.classList.toggle('nav-menu-open');
+    mobileMenuToggle.classList.toggle('active');
+    mobileMenuToggle.setAttribute('aria-expanded', isOpen);
+});
+
+// Close menu function
+function closeMobileMenu() {
+    navMenu.classList.remove('active');
+    navbar.classList.remove('nav-menu-open');
+    mobileMenuToggle?.classList.remove('active');
+    mobileMenuToggle?.setAttribute('aria-expanded', 'false');
+}
+
+// Close menu on Escape key
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && navMenu.classList.contains('active')) {
+        closeMobileMenu();
     }
 });
 
-// Mobile menu toggle
-mobileMenuToggle?.addEventListener('click', () => {
-    navMenu.classList.toggle('active');
-
-    // Animate hamburger menu
-    const spans = mobileMenuToggle.querySelectorAll('span');
-    if (navMenu.classList.contains('active')) {
-        spans[0].style.transform = 'rotate(45deg) translateY(10px)';
-        spans[1].style.opacity = '0';
-        spans[2].style.transform = 'rotate(-45deg) translateY(-10px)';
-    } else {
-        spans[0].style.transform = 'none';
-        spans[1].style.opacity = '1';
-        spans[2].style.transform = 'none';
+// Close menu when clicking backdrop
+navbar?.addEventListener('click', (e) => {
+    if (e.target === navbar && navbar.classList.contains('nav-menu-open')) {
+        closeMobileMenu();
     }
 });
 
@@ -38,20 +98,16 @@ navLinks.forEach(link => {
         const targetSection = document.querySelector(targetId);
 
         if (targetSection) {
-            const offsetTop = targetSection.offsetTop - 80;
+            const navbarHeight = window.innerWidth <= 768 ? NAVBAR_HEIGHT_MOBILE : NAVBAR_HEIGHT_DESKTOP;
+            const offsetTop = targetSection.offsetTop - navbarHeight;
+
             window.scrollTo({
                 top: offsetTop,
                 behavior: 'smooth'
             });
 
-            // Close mobile menu if open
-            navMenu.classList.remove('active');
-            const spans = mobileMenuToggle?.querySelectorAll('span');
-            if (spans) {
-                spans[0].style.transform = 'none';
-                spans[1].style.opacity = '1';
-                spans[2].style.transform = 'none';
-            }
+            // Close mobile menu
+            closeMobileMenu();
         }
     });
 });
@@ -78,7 +134,9 @@ function updateActiveNavLink() {
     });
 }
 
-window.addEventListener('scroll', updateActiveNavLink);
+// Debounce active nav link updates
+const debouncedUpdateActiveNavLink = debounce(updateActiveNavLink, 100);
+window.addEventListener('scroll', debouncedUpdateActiveNavLink, { passive: true });
 
 // Intersection Observer for fade-in animations
 const observerOptions = {

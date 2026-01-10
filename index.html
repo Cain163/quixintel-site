@@ -19,13 +19,13 @@
 <body>
     <!-- Navigation -->
     <nav class="navbar">
-        <img src="assets/images/header-logo.png" alt="Quix Intel Logo" class="logo-image">
-        <button class="mobile-menu-toggle" aria-label="Toggle menu">
-            <span></span>
-            <span></span>
-            <span></span>
+        <img src="assets/images/header-logo.png" alt="Quix Intel Logo" class="logo-image" loading="eager">
+        <button class="mobile-menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-menu">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
         </button>
-        <ul class="nav-menu">
+        <ul class="nav-menu" id="nav-menu">
             <li><a href="#home" class="nav-link active">Home</a></li>
             <li><a href="#about" class="nav-link">About</a></li>
             <li><a href="#features" class="nav-link">Features</a></li>
@@ -454,7 +454,7 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <div class="footer-logo">
-                        <img src="assets/images/header-logo.png" alt="Quix Intel" class="footer-logo-image">
+                        <img src="assets/images/header-logo.png" alt="Quix Intel" class="footer-logo-image" loading="lazy">
                     </div>
                     <p class="footer-description">
                         AI-powered geopolitical threat intelligence for organizations operating in complex environments.
