@@ -65,7 +65,7 @@ body {
     top: 0;
     left: 0;
     right: 0;
-    height: 80px;
+    height: 120px;
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
     box-shadow: var(--shadow);
@@ -81,7 +81,7 @@ body {
     height: 180px;
     width: auto;
     display: block;
-    padding: 0;
+    padding: 10px 0 0 20px;
     margin: 0;
     flex-shrink: 0;
 }
@@ -149,7 +149,7 @@ body {
     background: linear-gradient(135deg, var(--bg-dark) 0%, var(--bg-slate) 100%);
     color: white;
     overflow: hidden;
-    padding-top: 80px;
+    padding-top: 120px;
 }
 
 .hero-background {
@@ -672,10 +672,10 @@ section {
 
     .nav-menu {
         position: fixed;
-        top: 80px;
+        top: 120px;
         left: -100%;
         width: 100%;
-        height: calc(100vh - 80px);
+        height: calc(100vh - 120px);
         background: white;
         flex-direction: column;
         padding: 2rem;
