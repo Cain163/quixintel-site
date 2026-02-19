@@ -11,32 +11,33 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        .legal-page { padding-top: 120px; padding-bottom: 4rem; min-height: 100vh; }
-        .legal-page h1 { font-size: 2.5rem; font-weight: 800; color: var(--secondary-color); margin-bottom: 0.5rem; }
-        .legal-page .last-updated { font-size: 0.95rem; color: var(--text-light); margin-bottom: 2rem; }
-        .legal-page h2 { font-size: 1.5rem; font-weight: 700; color: var(--secondary-color); margin-top: 2.5rem; margin-bottom: 1rem; }
-        .legal-page p, .legal-page li { font-size: 1rem; color: var(--text-secondary); line-height: 1.8; margin-bottom: 1rem; }
+        .legal-page { padding-top: 140px; padding-bottom: 4rem; min-height: 100vh; background: var(--bg-white); }
+        .legal-page h1 { font-size: 2.5rem; font-weight: 800; color: var(--text-dark); margin-bottom: 0.5rem; }
+        .legal-page .last-updated { font-size: 0.95rem; color: var(--text-gray); margin-bottom: 2rem; }
+        .legal-page h2 { font-size: 1.5rem; font-weight: 700; color: var(--text-dark); margin-top: 2.5rem; margin-bottom: 1rem; }
+        .legal-page p, .legal-page li { font-size: 1rem; color: var(--text-dark); line-height: 1.8; margin-bottom: 1rem; }
         .legal-page ul { padding-left: 1.5rem; margin-bottom: 1rem; }
-        .legal-page a { color: var(--primary-color); text-decoration: none; }
+        .legal-page a { color: var(--primary); text-decoration: none; }
         .legal-page a:hover { text-decoration: underline; }
+        .legal-page strong { color: var(--text-dark); }
     </style>
 </head>
 <body>
     <!-- Navigation -->
     <nav class="navbar">
-        <a href="/"><img src="../assets/images/header-logo.png" alt="Quix Intel Logo" class="logo-image" loading="eager"></a>
+        <a href="../"><img src="../assets/images/header-logo.png" alt="Quix Intel Logo" class="logo-image" loading="eager"></a>
         <button class="mobile-menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-menu">
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
         </button>
         <ul class="nav-menu" id="nav-menu">
-            <li><a href="/" class="nav-link">Home</a></li>
-            <li><a href="/#about" class="nav-link">About</a></li>
-            <li><a href="/#features" class="nav-link">Features</a></li>
-            <li><a href="/#regions" class="nav-link">Coverage</a></li>
-            <li><a href="/#technology" class="nav-link">Technology</a></li>
-            <li><a href="/#contact" class="nav-link">Contact</a></li>
+            <li><a href="../" class="nav-link">Home</a></li>
+            <li><a href="../#about" class="nav-link">About</a></li>
+            <li><a href="../#features" class="nav-link">Features</a></li>
+            <li><a href="../#regions" class="nav-link">Coverage</a></li>
+            <li><a href="../#technology" class="nav-link">Technology</a></li>
+            <li><a href="../#contact" class="nav-link">Contact</a></li>
         </ul>
     </nav>
 
@@ -49,7 +50,7 @@
 
             <h2>1. Information We Collect</h2>
             <p><strong>Account Information:</strong> When you create an account, we collect your email address and authentication credentials. If you sign in with Apple, we receive the information you authorize Apple to share (which may include your email address or a private relay address).</p>
-            <p><strong>Usage Data:</strong> We collect anonymous analytics data about how you interact with the App, including features accessed, screens viewed, and general usage patterns. This data is collected through PostHog and is used to improve the App experience.</p>
+            <p><strong>Usage Data:</strong> We collect anonymous analytics data about how you interact with the App, including features accessed, screens viewed, and general usage patterns. This data is collected through PostHog and is used to improve the App experience. We use a hash of your email as a distinct identifier to avoid sending personally identifiable information.</p>
             <p><strong>Error Reports:</strong> We use Sentry to collect crash reports and error logs to help us identify and fix technical issues. These reports may include device type, operating system version, and app state at the time of the error.</p>
             <p><strong>Subscription Information:</strong> Subscription purchases are processed by Apple (App Store) or Google (Google Play). We receive confirmation of your subscription status through RevenueCat but do not have access to your payment details (credit card numbers, billing address, etc.).</p>
 
@@ -59,6 +60,7 @@
                 <li>We do not access your contacts, photos, or other personal files</li>
                 <li>We do not collect or store payment card information</li>
                 <li>We do not track your browsing activity outside of the App</li>
+                <li>We do not share your data with third parties for advertising purposes</li>
             </ul>
 
             <h2>3. How We Use Your Information</h2>
@@ -72,13 +74,13 @@
                 <li>Respond to your support requests</li>
             </ul>
 
-            <h2>4. Sharing of Information</h2>
-            <p>We do not sell, rent, or trade your personal information to third parties. We may share limited data with the following service providers who assist us in operating the App:</p>
+            <h2>4. Third-Party Services</h2>
+            <p>We do not sell, rent, or trade your personal information to third parties. We use the following service providers who assist us in operating the App:</p>
             <ul>
-                <li><strong>RevenueCat:</strong> Subscription management</li>
+                <li><strong>RevenueCat:</strong> Subscription management and entitlement verification</li>
                 <li><strong>Sentry:</strong> Error tracking and crash reporting</li>
                 <li><strong>PostHog:</strong> Anonymous product analytics</li>
-                <li><strong>Apple / Google:</strong> Authentication and in-app purchase processing</li>
+                <li><strong>Apple / Google:</strong> Authentication (Apple Sign In) and in-app purchase processing</li>
             </ul>
             <p>These providers are bound by their own privacy policies and only receive the minimum data necessary to perform their services.</p>
 
@@ -130,28 +132,27 @@
                 <div class="footer-section">
                     <h4>Platform</h4>
                     <ul>
-                        <li><a href="/#features">Threat Monitoring</a></li>
-                        <li><a href="/#features">AI Analysis</a></li>
-                        <li><a href="/#features">Economic Intelligence</a></li>
-                        <li><a href="/#features">Cyber Threats</a></li>
+                        <li><a href="../#features">Threat Monitoring</a></li>
+                        <li><a href="../#features">AI Analysis</a></li>
+                        <li><a href="../#features">Economic Intelligence</a></li>
+                        <li><a href="../#features">Cyber Threats</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
                     <h4>Coverage</h4>
                     <ul>
-                        <li><a href="/#regions">Middle East (14)</a></li>
-                        <li><a href="/#regions">Latin America (6)</a></li>
-                        <li><a href="/#regions">Asia (13)</a></li>
-                        <li><a href="/#regions">Africa (14)</a></li>
+                        <li><a href="../#regions">Middle East (14)</a></li>
+                        <li><a href="../#regions">Latin America (6)</a></li>
+                        <li><a href="../#regions">Asia (13)</a></li>
+                        <li><a href="../#regions">Africa (14)</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
-                    <h4>Company</h4>
+                    <h4>Legal</h4>
                     <ul>
-                        <li><a href="/#about">About Us</a></li>
-                        <li><a href="/#technology">Technology</a></li>
-                        <li><a href="/#contact">Contact</a></li>
-                        <li><a href="/#contact">Request Demo</a></li>
+                        <li><a href="../privacy/">Privacy Policy</a></li>
+                        <li><a href="../terms/">Terms of Use</a></li>
+                        <li><a href="../#contact">Contact</a></li>
                     </ul>
                 </div>
             </div>

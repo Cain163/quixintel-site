@@ -11,32 +11,33 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        .legal-page { padding-top: 120px; padding-bottom: 4rem; min-height: 100vh; }
-        .legal-page h1 { font-size: 2.5rem; font-weight: 800; color: var(--secondary-color); margin-bottom: 0.5rem; }
-        .legal-page .last-updated { font-size: 0.95rem; color: var(--text-light); margin-bottom: 2rem; }
-        .legal-page h2 { font-size: 1.5rem; font-weight: 700; color: var(--secondary-color); margin-top: 2.5rem; margin-bottom: 1rem; }
-        .legal-page p, .legal-page li { font-size: 1rem; color: var(--text-secondary); line-height: 1.8; margin-bottom: 1rem; }
+        .legal-page { padding-top: 140px; padding-bottom: 4rem; min-height: 100vh; background: var(--bg-white); }
+        .legal-page h1 { font-size: 2.5rem; font-weight: 800; color: var(--text-dark); margin-bottom: 0.5rem; }
+        .legal-page .last-updated { font-size: 0.95rem; color: var(--text-gray); margin-bottom: 2rem; }
+        .legal-page h2 { font-size: 1.5rem; font-weight: 700; color: var(--text-dark); margin-top: 2.5rem; margin-bottom: 1rem; }
+        .legal-page p, .legal-page li { font-size: 1rem; color: var(--text-dark); line-height: 1.8; margin-bottom: 1rem; }
         .legal-page ul { padding-left: 1.5rem; margin-bottom: 1rem; }
-        .legal-page a { color: var(--primary-color); text-decoration: none; }
+        .legal-page a { color: var(--primary); text-decoration: none; }
         .legal-page a:hover { text-decoration: underline; }
+        .legal-page strong { color: var(--text-dark); }
     </style>
 </head>
 <body>
     <!-- Navigation -->
     <nav class="navbar">
-        <a href="/"><img src="../assets/images/header-logo.png" alt="Quix Intel Logo" class="logo-image" loading="eager"></a>
+        <a href="../"><img src="../assets/images/header-logo.png" alt="Quix Intel Logo" class="logo-image" loading="eager"></a>
         <button class="mobile-menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-menu">
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
         </button>
         <ul class="nav-menu" id="nav-menu">
-            <li><a href="/" class="nav-link">Home</a></li>
-            <li><a href="/#about" class="nav-link">About</a></li>
-            <li><a href="/#features" class="nav-link">Features</a></li>
-            <li><a href="/#regions" class="nav-link">Coverage</a></li>
-            <li><a href="/#technology" class="nav-link">Technology</a></li>
-            <li><a href="/#contact" class="nav-link">Contact</a></li>
+            <li><a href="../" class="nav-link">Home</a></li>
+            <li><a href="../#about" class="nav-link">About</a></li>
+            <li><a href="../#features" class="nav-link">Features</a></li>
+            <li><a href="../#regions" class="nav-link">Coverage</a></li>
+            <li><a href="../#technology" class="nav-link">Technology</a></li>
+            <li><a href="../#contact" class="nav-link">Contact</a></li>
         </ul>
     </nav>
 
@@ -51,13 +52,30 @@
             <p>By accessing or using the App, you confirm that you are at least 13 years old, that you have read and understood these Terms, and that you agree to be bound by them. If you do not agree, do not use the App.</p>
 
             <h2>2. Description of Service</h2>
-            <p>Quix Intel is an informational application that aggregates publicly available open-source data to provide geopolitical event monitoring, regional situation reports, and related analysis for the Middle East and Latin America. The App is intended for informational and educational purposes only.</p>
+            <p>Quix Intel is an informational application that aggregates publicly available open-source data to provide geopolitical event monitoring, regional situation reports, and related analysis for the Middle East, Latin America, Asia, and Africa. The App is intended for informational and educational purposes only.</p>
+            <p>The App provides the following features:</p>
+            <ul>
+                <li>Interactive maps showing security conditions by region</li>
+                <li>Real-time news event tracking</li>
+                <li>Encyclopedia of countries, actors, and organizations</li>
+                <li>AI-generated situation reports and threat assessments</li>
+                <li>Economic dashboard with commodities, currencies, and indicators</li>
+                <li>Cyber threat monitoring</li>
+            </ul>
 
             <h2>3. Accounts</h2>
             <p>You may create an account using your email address or through Apple Sign In. You are responsible for maintaining the confidentiality of your account credentials and for all activity that occurs under your account. You agree to notify us immediately of any unauthorized use of your account.</p>
 
-            <h2>4. Subscriptions and Payments</h2>
-            <p>The App offers a free tier with limited features and an optional auto-renewable subscription ("Quix Intel Pro") that provides access to premium features.</p>
+            <h2>4. Subscription Tiers</h2>
+            <p>The App offers the following access levels:</p>
+            <ul>
+                <li><strong>Guest (not signed in):</strong> Dashboard view, News events (24h), and Map (24h, no layers)</li>
+                <li><strong>Free (registered users):</strong> All Guest features plus Encyclopedia, SitRep preview, Cyber threats, BitChat mesh messaging, Bookmarks, and Push notifications</li>
+                <li><strong>Quix Intel Pro:</strong> All Free features plus Full unredacted SitReps, all event types (News, Chatter, Wire), Extended history (48h/7d/30d), AI-powered search, Economic dashboard, Event clusters, Actor network analysis, Timeline view, Share reports, Audio playback (TTS), and Map layers (explosions, aircraft, shipping, pipelines)</li>
+            </ul>
+
+            <h2>5. Subscriptions and Payments</h2>
+            <p>The App offers an optional auto-renewable subscription ("Quix Intel Pro") that provides access to premium features.</p>
             <ul>
                 <li><strong>Price:</strong> Quix Intel Pro is available for $4.99 per month (USD). Prices may vary by region and are displayed in your local currency at the time of purchase.</li>
                 <li><strong>Billing:</strong> Payment will be charged to your Apple ID or Google Play account at confirmation of purchase.</li>
@@ -67,17 +85,17 @@
                 <li><strong>Free Trial:</strong> If a free trial is offered, any unused portion of the trial will be forfeited when you purchase a subscription.</li>
             </ul>
 
-            <h2>5. Disclaimer of Warranties</h2>
+            <h2>6. Disclaimer of Warranties</h2>
             <p>THE APP AND ALL CONTENT ARE PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTIES OF ANY KIND, WHETHER EXPRESS OR IMPLIED. Quix Intel is an informational tool based on publicly available sources and does not guarantee the accuracy, completeness, timeliness, or reliability of any information presented.</p>
-            <p><strong>The App is not a substitute for professional security advice, official government travel advisories, or guidance from local authorities.</strong> Always verify information with official sources before making travel or security decisions.</p>
+            <p><strong>IMPORTANT: All threat scores, summaries, and predictions are AI-generated and provided for informational purposes only. The App is not a substitute for professional security advice, official government travel advisories, or guidance from local authorities.</strong> Always verify information with official sources before making travel or security decisions.</p>
 
-            <h2>6. Limitation of Liability</h2>
+            <h2>7. Limitation of Liability</h2>
             <p>TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, QUIX INTEL, LLC SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, OR ANY LOSS OF PROFITS OR REVENUES, WHETHER INCURRED DIRECTLY OR INDIRECTLY, OR ANY LOSS OF DATA, USE, GOODWILL, OR OTHER INTANGIBLE LOSSES, RESULTING FROM YOUR USE OF THE APP.</p>
 
-            <h2>7. Intellectual Property</h2>
+            <h2>8. Intellectual Property</h2>
             <p>The App, including its design, features, code, and content created by Quix, is the property of Quix Intel, LLC and is protected by intellectual property laws. You may not copy, modify, distribute, sell, or lease any part of the App without our prior written consent.</p>
 
-            <h2>8. Acceptable Use</h2>
+            <h2>9. Acceptable Use</h2>
             <p>You agree not to:</p>
             <ul>
                 <li>Use the App for any unlawful purpose</li>
@@ -88,19 +106,19 @@
                 <li>Use the App to harass, threaten, or harm others</li>
             </ul>
 
-            <h2>9. Third-Party Services</h2>
+            <h2>10. Third-Party Services</h2>
             <p>The App may contain links to or integrate with third-party services. We are not responsible for the content, privacy policies, or practices of any third-party services. Your use of third-party services is at your own risk.</p>
 
-            <h2>10. Termination</h2>
+            <h2>11. Termination</h2>
             <p>We reserve the right to suspend or terminate your account and access to the App at any time, with or without cause, and with or without notice. Upon termination, your right to use the App will immediately cease.</p>
 
-            <h2>11. Changes to Terms</h2>
+            <h2>12. Changes to Terms</h2>
             <p>We may modify these Terms at any time. We will notify you of material changes by posting the updated Terms within the App or on our website. Your continued use of the App after the effective date of any changes constitutes your acceptance of the updated Terms.</p>
 
-            <h2>12. Governing Law</h2>
+            <h2>13. Governing Law</h2>
             <p>These Terms shall be governed by and construed in accordance with the laws of the United States, without regard to conflict of law principles.</p>
 
-            <h2>13. Contact Us</h2>
+            <h2>14. Contact Us</h2>
             <p>If you have any questions about these Terms, please contact us:</p>
             <ul>
                 <li>Email: <a href="mailto:contact@quixintel.com">contact@quixintel.com</a></li>
@@ -125,28 +143,27 @@
                 <div class="footer-section">
                     <h4>Platform</h4>
                     <ul>
-                        <li><a href="/#features">Threat Monitoring</a></li>
-                        <li><a href="/#features">AI Analysis</a></li>
-                        <li><a href="/#features">Economic Intelligence</a></li>
-                        <li><a href="/#features">Cyber Threats</a></li>
+                        <li><a href="../#features">Threat Monitoring</a></li>
+                        <li><a href="../#features">AI Analysis</a></li>
+                        <li><a href="../#features">Economic Intelligence</a></li>
+                        <li><a href="../#features">Cyber Threats</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
                     <h4>Coverage</h4>
                     <ul>
-                        <li><a href="/#regions">Middle East (14)</a></li>
-                        <li><a href="/#regions">Latin America (6)</a></li>
-                        <li><a href="/#regions">Asia (13)</a></li>
-                        <li><a href="/#regions">Africa (14)</a></li>
+                        <li><a href="../#regions">Middle East (14)</a></li>
+                        <li><a href="../#regions">Latin America (6)</a></li>
+                        <li><a href="../#regions">Asia (13)</a></li>
+                        <li><a href="../#regions">Africa (14)</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
-                    <h4>Company</h4>
+                    <h4>Legal</h4>
                     <ul>
-                        <li><a href="/#about">About Us</a></li>
-                        <li><a href="/#technology">Technology</a></li>
-                        <li><a href="/#contact">Contact</a></li>
-                        <li><a href="/#contact">Request Demo</a></li>
+                        <li><a href="../privacy/">Privacy Policy</a></li>
+                        <li><a href="../terms/">Terms of Use</a></li>
+                        <li><a href="../#contact">Contact</a></li>
                     </ul>
                 </div>
             </div>
