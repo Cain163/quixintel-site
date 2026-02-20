@@ -163,6 +163,27 @@
         </div>
     </footer>
 
-    <script src="../script.js"></script>
+    <script>
+        // Mobile menu toggle for legal pages
+        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+        const navbar = document.querySelector('.navbar');
+
+        mobileMenuToggle?.addEventListener('click', () => {
+            const isOpen = navMenu.classList.toggle('active');
+            navbar.classList.toggle('nav-menu-open');
+            mobileMenuToggle.classList.toggle('active');
+            mobileMenuToggle.setAttribute('aria-expanded', isOpen);
+        });
+
+        // Close menu when clicking a link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                navbar.classList.remove('nav-menu-open');
+                mobileMenuToggle?.classList.remove('active');
+            });
+        });
+    </script>
 </body>
 </html>
