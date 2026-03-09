@@ -264,6 +264,85 @@ body {
     color: var(--text-muted);
 }
 
+/* Promo Video Section */
+.promo-section {
+    background: var(--bg-dark);
+    padding: 0;
+    position: relative;
+}
+
+.promo-section .container {
+    max-width: 1200px;
+    padding: 0 20px;
+}
+
+.promo-video-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 960px;
+    margin: 0 auto;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    transform: translateY(-3rem);
+}
+
+.promo-video {
+    width: 100%;
+    display: block;
+    background: #000;
+}
+
+.promo-video-controls {
+    position: absolute;
+    bottom: 16px;
+    right: 16px;
+    display: flex;
+    gap: 8px;
+    z-index: 10;
+}
+
+.promo-control-btn {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s ease;
+    backdrop-filter: blur(4px);
+}
+
+.promo-control-btn:hover {
+    background: rgba(37, 99, 235, 0.8);
+}
+
+.promo-control-btn svg {
+    width: 20px;
+    height: 20px;
+}
+
+@media (max-width: 768px) {
+    .promo-video-wrapper {
+        border-radius: 8px;
+        transform: translateY(-1.5rem);
+    }
+
+    .promo-control-btn {
+        width: 40px;
+        height: 40px;
+    }
+
+    .promo-control-btn svg {
+        width: 18px;
+        height: 18px;
+    }
+}
+
 /* Buttons */
 .btn {
     display: inline-block;
