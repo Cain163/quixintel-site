@@ -752,3 +752,60 @@ window.addEventListener('resize', () => {
     updatePlayIcon();
     updateMuteIcon();
 })();
+
+// Screenshots Carousel
+(function() {
+    const track = document.querySelector('.screenshots-track');
+    const slides = document.querySelectorAll('.screenshot-slide');
+    const prevBtn = document.querySelector('.carousel-prev');
+    const nextBtn = document.querySelector('.carousel-next');
+    const dotsContainer = document.querySelector('.carousel-dots');
+
+    if (!track || slides.length === 0) return;
+
+    let current = 0;
+    const total = slides.length;
+
+    // Create dots
+    for (let i = 0; i < total; i++) {
+        const dot = document.createElement('button');
+        dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+        dot.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+        dot.addEventListener('click', function() { goTo(i); });
+        dotsContainer.appendChild(dot);
+    }
+
+    function goTo(index) {
+        current = index;
+        if (current < 0) current = total - 1;
+        if (current >= total) current = 0;
+        track.style.transform = 'translateX(-' + (current * 100) + '%)';
+        // Update dots
+        var dots = dotsContainer.querySelectorAll('.carousel-dot');
+        dots.forEach(function(d, i) {
+            d.className = 'carousel-dot' + (i === current ? ' active' : '');
+        });
+    }
+
+    prevBtn.addEventListener('click', function() { goTo(current - 1); });
+    nextBtn.addEventListener('click', function() { goTo(current + 1); });
+
+    // Touch/swipe support
+    let startX = 0;
+    let isDragging = false;
+
+    track.addEventListener('touchstart', function(e) {
+        startX = e.touches[0].clientX;
+        isDragging = true;
+    });
+
+    track.addEventListener('touchend', function(e) {
+        if (!isDragging) return;
+        var diff = startX - e.changedTouches[0].clientX;
+        if (Math.abs(diff) > 50) {
+            if (diff > 0) goTo(current + 1);
+            else goTo(current - 1);
+        }
+        isDragging = false;
+    });
+})();

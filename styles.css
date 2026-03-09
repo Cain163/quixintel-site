@@ -330,61 +330,135 @@ body {
     pointer-events: none;
 }
 
-/* App Screenshots Gallery */
+/* App Screenshots Carousel */
 .screenshots-section {
-    background: var(--bg-dark);
-    padding: 2rem 0 4rem;
+    background: var(--bg-darker);
+    padding: 4rem 0 3rem;
 }
 
 .screenshots-section .section-header {
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
 }
 
-.screenshots-gallery {
+.screenshots-carousel {
     display: flex;
+    align-items: center;
     gap: 1rem;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    padding: 0.5rem 0 1.5rem;
-    scrollbar-width: thin;
-    scrollbar-color: var(--primary) var(--bg-slate);
-    justify-content: center;
+    max-width: 700px;
+    margin: 0 auto;
 }
 
-.screenshots-gallery::-webkit-scrollbar {
-    height: 6px;
-}
-
-.screenshots-gallery::-webkit-scrollbar-track {
-    background: var(--bg-slate);
-    border-radius: 3px;
-}
-
-.screenshots-gallery::-webkit-scrollbar-thumb {
-    background: var(--primary);
-    border-radius: 3px;
-}
-
-.screenshot-item {
-    flex: 0 0 auto;
-    scroll-snap-align: center;
-    border-radius: 12px;
+.screenshots-track-wrapper {
     overflow: hidden;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
-    border: 2px solid var(--bg-slate);
-    transition: transform 0.3s ease, border-color 0.3s ease;
+    flex: 1;
 }
 
-.screenshot-item:hover {
-    transform: translateY(-4px);
-    border-color: var(--primary);
+.screenshots-track {
+    display: flex;
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-.screenshot-item img {
-    height: 380px;
-    width: auto;
+.screenshot-slide {
+    min-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 1rem;
+}
+
+.phone-frame {
+    position: relative;
+    width: 220px;
+    background: #000;
+    border-radius: 28px;
+    padding: 8px;
+    box-shadow:
+        0 0 0 2px #333,
+        0 20px 40px rgba(0, 0, 0, 0.5),
+        0 0 60px rgba(37, 99, 235, 0.1);
+}
+
+.phone-notch {
+    width: 80px;
+    height: 6px;
+    background: #333;
+    border-radius: 3px;
+    margin: 4px auto 6px;
+}
+
+.phone-frame img {
+    width: 100%;
     display: block;
+    border-radius: 20px;
+}
+
+.slide-caption {
+    text-align: center;
+    margin-top: 1.5rem;
+    max-width: 320px;
+}
+
+.slide-caption h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.4rem;
+}
+
+.slide-caption p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+}
+
+.carousel-btn {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 2px solid var(--bg-slate);
+    background: var(--bg-slate);
+    color: var(--text-secondary);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+}
+
+.carousel-btn:hover {
+    background: var(--primary);
+    border-color: var(--primary);
+    color: white;
+}
+
+.carousel-btn svg {
+    width: 20px;
+    height: 20px;
+}
+
+.carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 1.5rem;
+}
+
+.carousel-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--bg-slate);
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    padding: 0;
+}
+
+.carousel-dot.active {
+    background: var(--primary);
+    width: 24px;
+    border-radius: 4px;
 }
 
 @media (max-width: 768px) {
@@ -403,18 +477,28 @@ body {
         height: 18px;
     }
 
-    .screenshot-item img {
-        height: 320px;
+    .phone-frame {
+        width: 180px;
     }
 
-    .screenshots-gallery {
-        gap: 0.75rem;
+    .carousel-btn {
+        width: 36px;
+        height: 36px;
+    }
+
+    .carousel-btn svg {
+        width: 16px;
+        height: 16px;
     }
 }
 
 @media (max-width: 480px) {
-    .screenshot-item img {
-        height: 280px;
+    .phone-frame {
+        width: 160px;
+    }
+
+    .screenshots-carousel {
+        gap: 0.5rem;
     }
 }
 
@@ -457,6 +541,7 @@ body {
 /* Sections */
 section {
     padding: 6rem 0;
+    background: var(--bg-dark);
 }
 
 .section-header {
