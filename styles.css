@@ -364,7 +364,13 @@ body {
     z-index: 1;
 }
 
-.video-lightbox-content video {
+.video-lightbox-content .promo-video-controls {
+    position: absolute;
+    bottom: 16px;
+    right: 16px;
+}
+
+.video-lightbox-content .promo-video {
     width: 100%;
     height: auto;
     display: block;
@@ -374,7 +380,7 @@ body {
 
 .lightbox-controls {
     position: absolute;
-    bottom: 16px;
+    top: 16px;
     right: 16px;
     display: flex;
     gap: 8px;

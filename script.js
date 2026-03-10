@@ -730,61 +730,32 @@ window.addEventListener('resize', () => {
         updateMuteIcon();
     });
 
-    // Lightbox overlay viewer
+    // Lightbox overlay viewer - moves the SAME video element into the lightbox
     var fullscreenBtn = document.getElementById('promo-fullscreen-btn');
     var lightbox = document.getElementById('video-lightbox');
-    var lightboxVideo = document.getElementById('lightbox-video');
+    var lightboxContent = lightbox ? lightbox.querySelector('.video-lightbox-content') : null;
     var lightboxClose = document.getElementById('lightbox-close');
     var lightboxBackdrop = lightbox ? lightbox.querySelector('.video-lightbox-backdrop') : null;
-
-    var lbPlayBtn = document.getElementById('lightbox-play-btn');
-    var lbMuteBtn = document.getElementById('lightbox-mute-btn');
-
-    function updateLbPlayIcon() {
-        if (!lbPlayBtn || !lightboxVideo) return;
-        var pauseIcon = lbPlayBtn.querySelector('.lb-icon-pause');
-        var playIcon = lbPlayBtn.querySelector('.lb-icon-play');
-        if (lightboxVideo.paused) {
-            pauseIcon.style.display = 'none';
-            playIcon.style.display = 'block';
-        } else {
-            pauseIcon.style.display = 'block';
-            playIcon.style.display = 'none';
-        }
-    }
-
-    function updateLbMuteIcon() {
-        if (!lbMuteBtn || !lightboxVideo) return;
-        var mutedIcon = lbMuteBtn.querySelector('.lb-icon-muted');
-        var unmutedIcon = lbMuteBtn.querySelector('.lb-icon-unmuted');
-        if (lightboxVideo.muted) {
-            mutedIcon.style.display = 'block';
-            unmutedIcon.style.display = 'none';
-        } else {
-            mutedIcon.style.display = 'none';
-            unmutedIcon.style.display = 'block';
-        }
-    }
+    var inlineWrapper = document.querySelector('.promo-video-wrapper');
+    var controls = document.querySelector('.promo-video-controls');
 
     function openLightbox() {
-        console.log('openLightbox called', { lightbox: !!lightbox, lightboxVideo: !!lightboxVideo });
-        if (!lightbox || !lightboxVideo) return;
-        lightboxVideo.currentTime = video.currentTime;
-        lightboxVideo.muted = video.muted;
+        if (!lightbox || !lightboxContent || !inlineWrapper) return;
+        // Move the video and its controls into the lightbox
+        lightboxContent.insertBefore(video, lightboxContent.firstChild);
+        lightboxContent.insertBefore(controls, lightboxContent.querySelector('.lightbox-controls'));
         lightbox.classList.add('active');
         lightbox.style.display = 'flex';
-        lightboxVideo.play();
         document.body.style.overflow = 'hidden';
-        updateLbPlayIcon();
-        updateLbMuteIcon();
     }
 
     function closeLightbox() {
-        if (!lightbox || !lightboxVideo) return;
-        video.currentTime = lightboxVideo.currentTime;
+        if (!lightbox || !inlineWrapper) return;
+        // Move the video and controls back to the inline wrapper
+        inlineWrapper.insertBefore(video, inlineWrapper.firstChild);
+        inlineWrapper.appendChild(controls);
         lightbox.classList.remove('active');
         lightbox.style.display = 'none';
-        lightboxVideo.pause();
         document.body.style.overflow = '';
     }
 
@@ -792,25 +763,11 @@ window.addEventListener('resize', () => {
         fullscreenBtn.addEventListener('click', function(e) {
             e.preventDefault();
             e.stopPropagation();
-            openLightbox();
-        });
-    }
-
-    if (lbPlayBtn) {
-        lbPlayBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            if (lightboxVideo.paused) lightboxVideo.play();
-            else lightboxVideo.pause();
-        });
-    }
-
-    if (lbMuteBtn) {
-        lbMuteBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            lightboxVideo.muted = !lightboxVideo.muted;
-            updateLbMuteIcon();
+            if (lightbox && lightbox.classList.contains('active')) {
+                closeLightbox();
+            } else {
+                openLightbox();
+            }
         });
     }
 
@@ -823,12 +780,6 @@ window.addEventListener('resize', () => {
 
     if (lightboxBackdrop) {
         lightboxBackdrop.addEventListener('click', closeLightbox);
-    }
-
-    if (lightboxVideo) {
-        lightboxVideo.addEventListener('play', updateLbPlayIcon);
-        lightboxVideo.addEventListener('pause', updateLbPlayIcon);
-        lightboxVideo.addEventListener('volumechange', updateLbMuteIcon);
     }
 
     document.addEventListener('keydown', function(e) {
