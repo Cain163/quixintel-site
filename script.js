@@ -742,7 +742,7 @@ window.addEventListener('resize', () => {
         if (!lightbox || !lightboxContent || !inlineWrapper || isLightboxOpen) return;
         // Move the video and its controls into the lightbox content area
         lightboxContent.prepend(video);
-        lightboxContent.insertBefore(inlineControls, lightboxContent.querySelector('.lightbox-controls'));
+        lightboxContent.appendChild(inlineControls);
         lightbox.classList.add('active');
         lightbox.style.display = 'flex';
         document.body.style.overflow = 'hidden';
@@ -771,14 +771,6 @@ window.addEventListener('resize', () => {
         } else {
             openLightbox();
         }
-    });
-
-    // Close button
-    document.addEventListener('click', function(e) {
-        var btn = e.target.closest('#lightbox-close');
-        if (!btn) return;
-        e.preventDefault();
-        closeLightbox();
     });
 
     // Backdrop click to close

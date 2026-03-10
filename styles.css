@@ -378,39 +378,6 @@ body {
     box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
 }
 
-.lightbox-controls {
-    position: absolute;
-    top: 16px;
-    right: 16px;
-    display: flex;
-    gap: 8px;
-    z-index: 10;
-}
-
-.lightbox-ctrl-btn {
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-    border: none;
-    background: rgba(0, 0, 0, 0.6);
-    color: white;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background 0.2s ease;
-    backdrop-filter: blur(4px);
-}
-
-.lightbox-ctrl-btn:hover {
-    background: rgba(37, 99, 235, 0.8);
-}
-
-.lightbox-ctrl-btn svg {
-    width: 20px;
-    height: 20px;
-    pointer-events: none;
-}
 
 /* App Screenshots Carousel */
 .screenshots-section {
