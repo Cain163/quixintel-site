@@ -373,34 +373,36 @@ body {
 }
 
 .lightbox-controls {
+    position: absolute;
+    bottom: 16px;
+    right: 16px;
     display: flex;
-    justify-content: center;
-    gap: 16px;
-    margin-top: 20px;
+    gap: 8px;
+    z-index: 10;
 }
 
 .lightbox-ctrl-btn {
-    width: 48px;
-    height: 48px;
+    width: 44px;
+    height: 44px;
     border-radius: 50%;
-    border: 2px solid rgba(255, 255, 255, 0.2);
-    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    background: rgba(0, 0, 0, 0.6);
     color: white;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: background 0.2s ease, border-color 0.2s ease;
+    transition: background 0.2s ease;
+    backdrop-filter: blur(4px);
 }
 
 .lightbox-ctrl-btn:hover {
-    background: rgba(255, 255, 255, 0.25);
-    border-color: rgba(255, 255, 255, 0.4);
+    background: rgba(37, 99, 235, 0.8);
 }
 
 .lightbox-ctrl-btn svg {
-    width: 22px;
-    height: 22px;
+    width: 20px;
+    height: 20px;
     pointer-events: none;
 }
 
