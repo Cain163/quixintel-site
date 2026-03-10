@@ -113,6 +113,11 @@
                             <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
                         </svg>
                     </button>
+                    <button id="promo-fullscreen-btn" class="promo-control-btn" aria-label="Fullscreen">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="24" height="24">
+                            <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path>
+                        </svg>
+                    </button>
                 </div>
             </div>
         </div>
@@ -371,83 +376,129 @@
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">Global Coverage</h2>
-                <p class="section-subtitle">47 Countries Across 4 Major Regions</p>
+                <p class="section-subtitle">Real-time intelligence across 47 countries in 4 regions</p>
             </div>
-            <div class="regions-grid">
-                <div class="region-card">
-                    <div class="region-icon">🌍</div>
-                    <h3 class="region-title">Middle East</h3>
-                    <p class="region-count">14 Countries</p>
-                    <ul class="region-list">
-                        <li>Syria</li>
-                        <li>Lebanon</li>
-                        <li>Israel</li>
-                        <li>Gaza</li>
-                        <li>Jordan</li>
-                        <li>Iraq</li>
-                        <li>Iran</li>
-                        <li>Turkey</li>
-                        <li>Egypt</li>
-                        <li>Saudi Arabia</li>
-                        <li>Yemen</li>
-                        <li>Oman</li>
-                        <li>UAE</li>
-                        <li>Somalia</li>
-                    </ul>
+            <div class="coverage-summary">
+                <div class="coverage-stat">
+                    <span class="coverage-number">47</span>
+                    <span class="coverage-label">Countries</span>
                 </div>
-                <div class="region-card">
-                    <div class="region-icon">🌎</div>
-                    <h3 class="region-title">Latin America</h3>
-                    <p class="region-count">6 Countries</p>
-                    <ul class="region-list">
-                        <li>Venezuela</li>
-                        <li>Colombia</li>
-                        <li>Brazil</li>
-                        <li>Mexico</li>
-                        <li>Argentina</li>
-                        <li>Chile</li>
-                    </ul>
+                <div class="coverage-stat">
+                    <span class="coverage-number">4</span>
+                    <span class="coverage-label">Regions</span>
                 </div>
-                <div class="region-card">
-                    <div class="region-icon">🌏</div>
-                    <h3 class="region-title">Asia</h3>
-                    <p class="region-count">13 Countries</p>
-                    <ul class="region-list">
-                        <li>China</li>
-                        <li>Taiwan</li>
-                        <li>North Korea</li>
-                        <li>South Korea</li>
-                        <li>Japan</li>
-                        <li>India</li>
-                        <li>Pakistan</li>
-                        <li>Afghanistan</li>
-                        <li>Myanmar</li>
-                        <li>Philippines</li>
-                        <li>Thailand</li>
-                        <li>Hong Kong</li>
-                        <li>Kashmir</li>
-                    </ul>
+                <div class="coverage-stat">
+                    <span class="coverage-number">24/7</span>
+                    <span class="coverage-label">Monitoring</span>
                 </div>
-                <div class="region-card">
-                    <div class="region-icon">🌍</div>
-                    <h3 class="region-title">Africa</h3>
-                    <p class="region-count">14 Countries</p>
-                    <ul class="region-list">
-                        <li>Ethiopia</li>
-                        <li>Sudan</li>
-                        <li>South Sudan</li>
-                        <li>Somalia</li>
-                        <li>Kenya</li>
-                        <li>DR Congo</li>
-                        <li>Nigeria</li>
-                        <li>Mali</li>
-                        <li>Burkina Faso</li>
-                        <li>Niger</li>
-                        <li>Libya</li>
-                        <li>Egypt</li>
-                        <li>Mozambique</li>
-                        <li>Central African Republic</li>
-                    </ul>
+                <div class="coverage-stat">
+                    <span class="coverage-number">15+</span>
+                    <span class="coverage-label">Intel Sources</span>
+                </div>
+            </div>
+            <div class="coverage-regions">
+                <div class="coverage-region">
+                    <button class="coverage-region-header" aria-expanded="false">
+                        <div class="coverage-region-info">
+                            <span class="coverage-region-name">Middle East</span>
+                            <span class="coverage-region-count">14 countries</span>
+                        </div>
+                        <span class="coverage-region-countries-preview">Syria, Lebanon, Israel, Iraq, Iran, Turkey, Saudi Arabia...</span>
+                        <svg class="coverage-chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </button>
+                    <div class="coverage-region-body">
+                        <div class="coverage-tags">
+                            <span class="coverage-tag">Syria</span>
+                            <span class="coverage-tag">Lebanon</span>
+                            <span class="coverage-tag">Israel</span>
+                            <span class="coverage-tag">Gaza</span>
+                            <span class="coverage-tag">Jordan</span>
+                            <span class="coverage-tag">Iraq</span>
+                            <span class="coverage-tag">Iran</span>
+                            <span class="coverage-tag">Turkey</span>
+                            <span class="coverage-tag">Egypt</span>
+                            <span class="coverage-tag">Saudi Arabia</span>
+                            <span class="coverage-tag">Yemen</span>
+                            <span class="coverage-tag">Oman</span>
+                            <span class="coverage-tag">UAE</span>
+                            <span class="coverage-tag">Somalia</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="coverage-region">
+                    <button class="coverage-region-header" aria-expanded="false">
+                        <div class="coverage-region-info">
+                            <span class="coverage-region-name">Latin America</span>
+                            <span class="coverage-region-count">6 countries</span>
+                        </div>
+                        <span class="coverage-region-countries-preview">Venezuela, Colombia, Brazil, Mexico, Argentina, Chile</span>
+                        <svg class="coverage-chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </button>
+                    <div class="coverage-region-body">
+                        <div class="coverage-tags">
+                            <span class="coverage-tag">Venezuela</span>
+                            <span class="coverage-tag">Colombia</span>
+                            <span class="coverage-tag">Brazil</span>
+                            <span class="coverage-tag">Mexico</span>
+                            <span class="coverage-tag">Argentina</span>
+                            <span class="coverage-tag">Chile</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="coverage-region">
+                    <button class="coverage-region-header" aria-expanded="false">
+                        <div class="coverage-region-info">
+                            <span class="coverage-region-name">Asia</span>
+                            <span class="coverage-region-count">13 countries</span>
+                        </div>
+                        <span class="coverage-region-countries-preview">China, Taiwan, North Korea, India, Pakistan, Japan...</span>
+                        <svg class="coverage-chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </button>
+                    <div class="coverage-region-body">
+                        <div class="coverage-tags">
+                            <span class="coverage-tag">China</span>
+                            <span class="coverage-tag">Taiwan</span>
+                            <span class="coverage-tag">North Korea</span>
+                            <span class="coverage-tag">South Korea</span>
+                            <span class="coverage-tag">Japan</span>
+                            <span class="coverage-tag">India</span>
+                            <span class="coverage-tag">Pakistan</span>
+                            <span class="coverage-tag">Afghanistan</span>
+                            <span class="coverage-tag">Myanmar</span>
+                            <span class="coverage-tag">Philippines</span>
+                            <span class="coverage-tag">Thailand</span>
+                            <span class="coverage-tag">Hong Kong</span>
+                            <span class="coverage-tag">Kashmir</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="coverage-region">
+                    <button class="coverage-region-header" aria-expanded="false">
+                        <div class="coverage-region-info">
+                            <span class="coverage-region-name">Africa</span>
+                            <span class="coverage-region-count">14 countries</span>
+                        </div>
+                        <span class="coverage-region-countries-preview">Ethiopia, Sudan, Nigeria, DR Congo, Kenya, Libya...</span>
+                        <svg class="coverage-chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </button>
+                    <div class="coverage-region-body">
+                        <div class="coverage-tags">
+                            <span class="coverage-tag">Ethiopia</span>
+                            <span class="coverage-tag">Sudan</span>
+                            <span class="coverage-tag">South Sudan</span>
+                            <span class="coverage-tag">Somalia</span>
+                            <span class="coverage-tag">Kenya</span>
+                            <span class="coverage-tag">DR Congo</span>
+                            <span class="coverage-tag">Nigeria</span>
+                            <span class="coverage-tag">Mali</span>
+                            <span class="coverage-tag">Burkina Faso</span>
+                            <span class="coverage-tag">Niger</span>
+                            <span class="coverage-tag">Libya</span>
+                            <span class="coverage-tag">Egypt</span>
+                            <span class="coverage-tag">Mozambique</span>
+                            <span class="coverage-tag">Central African Republic</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -560,7 +611,7 @@
                         </div>
                     </div>
                 </div>
-                <form class="contact-form">
+                <form class="contact-form" id="contact-form">
                     <div class="form-group">
                         <label for="name">Name</label>
                         <input type="text" id="name" name="name" required>
@@ -578,6 +629,7 @@
                         <textarea id="message" name="message" rows="5" required></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary">Send Message</button>
+                    <p class="form-note">Opens your email client with the message pre-filled.</p>
                 </form>
             </div>
         </div>

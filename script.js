@@ -162,41 +162,26 @@ animateElements.forEach(el => {
     observer.observe(el);
 });
 
-// Contact form handling
-const contactForm = document.querySelector('.contact-form');
+// Contact form handling - opens email client
+const contactForm = document.getElementById('contact-form');
 
 contactForm?.addEventListener('submit', (e) => {
     e.preventDefault();
 
-    const formData = {
-        name: document.getElementById('name').value,
-        email: document.getElementById('email').value,
-        organization: document.getElementById('organization').value,
-        message: document.getElementById('message').value
-    };
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const org = document.getElementById('organization').value;
+    const message = document.getElementById('message').value;
 
-    // Show success message (in production, this would send to a backend)
-    alert('Thank you for your message! Our team will contact you shortly.');
+    const subject = encodeURIComponent('Quix Intel Inquiry' + (org ? ' - ' + org : ''));
+    const body = encodeURIComponent(
+        'Name: ' + name + '\n' +
+        'Email: ' + email + '\n' +
+        (org ? 'Organization: ' + org + '\n' : '') +
+        '\n' + message
+    );
 
-    // Reset form
-    contactForm.reset();
-
-    // In production, you would send the form data to your backend:
-    // fetch('/api/contact', {
-    //     method: 'POST',
-    //     headers: {
-    //         'Content-Type': 'application/json',
-    //     },
-    //     body: JSON.stringify(formData)
-    // })
-    // .then(response => response.json())
-    // .then(data => {
-    //     alert('Thank you for your message! Our team will contact you shortly.');
-    //     contactForm.reset();
-    // })
-    // .catch(error => {
-    //     alert('There was an error sending your message. Please try again.');
-    // });
+    window.location.href = 'mailto:contact@quixintel.com?subject=' + subject + '&body=' + body;
 });
 
 // Counter animation for stats
@@ -745,6 +730,24 @@ window.addEventListener('resize', () => {
         updateMuteIcon();
     });
 
+    var fullscreenBtn = document.getElementById('promo-fullscreen-btn');
+    if (fullscreenBtn) {
+        fullscreenBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            var wrapper = document.querySelector('.promo-video-wrapper');
+            if (video.requestFullscreen) {
+                video.requestFullscreen();
+            } else if (video.webkitRequestFullscreen) {
+                video.webkitRequestFullscreen();
+            } else if (video.webkitEnterFullScreen) {
+                video.webkitEnterFullScreen();
+            } else if (wrapper.requestFullscreen) {
+                wrapper.requestFullscreen();
+            }
+        });
+    }
+
     video.addEventListener('play', updatePlayIcon);
     video.addEventListener('pause', updatePlayIcon);
     video.addEventListener('volumechange', updateMuteIcon);
@@ -807,5 +810,28 @@ window.addEventListener('resize', () => {
             else goTo(current - 1);
         }
         isDragging = false;
+    });
+})();
+
+// Coverage Region Accordion
+(function() {
+    var headers = document.querySelectorAll('.coverage-region-header');
+    headers.forEach(function(header) {
+        header.addEventListener('click', function() {
+            var body = this.nextElementSibling;
+            var isOpen = this.getAttribute('aria-expanded') === 'true';
+
+            // Close all
+            headers.forEach(function(h) {
+                h.setAttribute('aria-expanded', 'false');
+                h.nextElementSibling.classList.remove('open');
+            });
+
+            // Toggle clicked
+            if (!isOpen) {
+                this.setAttribute('aria-expanded', 'true');
+                body.classList.add('open');
+            }
+        });
     });
 })();
