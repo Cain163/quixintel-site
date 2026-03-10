@@ -372,37 +372,34 @@ body {
 }
 
 .lightbox-controls {
-    position: absolute;
-    bottom: 16px;
-    left: 50%;
-    transform: translateX(-50%);
     display: flex;
-    gap: 12px;
-    padding: 8px 16px;
-    background: rgba(0, 0, 0, 0.6);
-    border-radius: 40px;
-    backdrop-filter: blur(8px);
+    justify-content: center;
+    gap: 16px;
+    margin-top: 20px;
 }
 
 .lightbox-ctrl-btn {
-    width: 44px;
-    height: 44px;
+    width: 48px;
+    height: 48px;
     border-radius: 50%;
-    border: none;
+    border: 2px solid rgba(255, 255, 255, 0.2);
     background: rgba(255, 255, 255, 0.1);
     color: white;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: background 0.2s ease;
+    transition: background 0.2s ease, border-color 0.2s ease;
 }
 
 .lightbox-ctrl-btn:hover {
     background: rgba(255, 255, 255, 0.25);
+    border-color: rgba(255, 255, 255, 0.4);
 }
 
 .lightbox-ctrl-btn svg {
+    width: 22px;
+    height: 22px;
     pointer-events: none;
 }
 
