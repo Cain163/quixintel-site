@@ -730,23 +730,54 @@ window.addEventListener('resize', () => {
         updateMuteIcon();
     });
 
+    // Lightbox overlay viewer
     var fullscreenBtn = document.getElementById('promo-fullscreen-btn');
+    var lightbox = document.getElementById('video-lightbox');
+    var lightboxVideo = document.getElementById('lightbox-video');
+    var lightboxClose = document.getElementById('lightbox-close');
+    var lightboxBackdrop = lightbox ? lightbox.querySelector('.video-lightbox-backdrop') : null;
+
+    function openLightbox() {
+        if (!lightbox || !lightboxVideo) return;
+        lightboxVideo.currentTime = video.currentTime;
+        lightboxVideo.muted = video.muted;
+        lightbox.classList.add('active');
+        lightboxVideo.play();
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+        if (!lightbox || !lightboxVideo) return;
+        video.currentTime = lightboxVideo.currentTime;
+        lightbox.classList.remove('active');
+        lightboxVideo.pause();
+        document.body.style.overflow = '';
+    }
+
     if (fullscreenBtn) {
         fullscreenBtn.addEventListener('click', function(e) {
             e.preventDefault();
             e.stopPropagation();
-            var wrapper = document.querySelector('.promo-video-wrapper');
-            if (video.requestFullscreen) {
-                video.requestFullscreen();
-            } else if (video.webkitRequestFullscreen) {
-                video.webkitRequestFullscreen();
-            } else if (video.webkitEnterFullScreen) {
-                video.webkitEnterFullScreen();
-            } else if (wrapper.requestFullscreen) {
-                wrapper.requestFullscreen();
-            }
+            openLightbox();
         });
     }
+
+    if (lightboxClose) {
+        lightboxClose.addEventListener('click', function(e) {
+            e.preventDefault();
+            closeLightbox();
+        });
+    }
+
+    if (lightboxBackdrop) {
+        lightboxBackdrop.addEventListener('click', closeLightbox);
+    }
+
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && lightbox && lightbox.classList.contains('active')) {
+            closeLightbox();
+        }
+    });
 
     video.addEventListener('play', updatePlayIcon);
     video.addEventListener('pause', updatePlayIcon);
