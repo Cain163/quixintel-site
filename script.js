@@ -813,25 +813,3 @@ window.addEventListener('resize', () => {
     });
 })();
 
-// Coverage Region Accordion
-(function() {
-    var headers = document.querySelectorAll('.coverage-region-header');
-    headers.forEach(function(header) {
-        header.addEventListener('click', function() {
-            var body = this.nextElementSibling;
-            var isOpen = this.getAttribute('aria-expanded') === 'true';
-
-            // Close all
-            headers.forEach(function(h) {
-                h.setAttribute('aria-expanded', 'false');
-                h.nextElementSibling.classList.remove('open');
-            });
-
-            // Toggle clicked
-            if (!isOpen) {
-                this.setAttribute('aria-expanded', 'true');
-                body.classList.add('open');
-            }
-        });
-    });
-})();
