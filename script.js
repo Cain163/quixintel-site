@@ -737,6 +737,35 @@ window.addEventListener('resize', () => {
     var lightboxClose = document.getElementById('lightbox-close');
     var lightboxBackdrop = lightbox ? lightbox.querySelector('.video-lightbox-backdrop') : null;
 
+    var lbPlayBtn = document.getElementById('lightbox-play-btn');
+    var lbMuteBtn = document.getElementById('lightbox-mute-btn');
+
+    function updateLbPlayIcon() {
+        if (!lbPlayBtn || !lightboxVideo) return;
+        var pauseIcon = lbPlayBtn.querySelector('.lb-icon-pause');
+        var playIcon = lbPlayBtn.querySelector('.lb-icon-play');
+        if (lightboxVideo.paused) {
+            pauseIcon.style.display = 'none';
+            playIcon.style.display = 'block';
+        } else {
+            pauseIcon.style.display = 'block';
+            playIcon.style.display = 'none';
+        }
+    }
+
+    function updateLbMuteIcon() {
+        if (!lbMuteBtn || !lightboxVideo) return;
+        var mutedIcon = lbMuteBtn.querySelector('.lb-icon-muted');
+        var unmutedIcon = lbMuteBtn.querySelector('.lb-icon-unmuted');
+        if (lightboxVideo.muted) {
+            mutedIcon.style.display = 'block';
+            unmutedIcon.style.display = 'none';
+        } else {
+            mutedIcon.style.display = 'none';
+            unmutedIcon.style.display = 'block';
+        }
+    }
+
     function openLightbox() {
         if (!lightbox || !lightboxVideo) return;
         lightboxVideo.currentTime = video.currentTime;
@@ -744,6 +773,8 @@ window.addEventListener('resize', () => {
         lightbox.classList.add('active');
         lightboxVideo.play();
         document.body.style.overflow = 'hidden';
+        updateLbPlayIcon();
+        updateLbMuteIcon();
     }
 
     function closeLightbox() {
@@ -762,6 +793,24 @@ window.addEventListener('resize', () => {
         });
     }
 
+    if (lbPlayBtn) {
+        lbPlayBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            if (lightboxVideo.paused) lightboxVideo.play();
+            else lightboxVideo.pause();
+        });
+    }
+
+    if (lbMuteBtn) {
+        lbMuteBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            lightboxVideo.muted = !lightboxVideo.muted;
+            updateLbMuteIcon();
+        });
+    }
+
     if (lightboxClose) {
         lightboxClose.addEventListener('click', function(e) {
             e.preventDefault();
@@ -771,6 +820,12 @@ window.addEventListener('resize', () => {
 
     if (lightboxBackdrop) {
         lightboxBackdrop.addEventListener('click', closeLightbox);
+    }
+
+    if (lightboxVideo) {
+        lightboxVideo.addEventListener('play', updateLbPlayIcon);
+        lightboxVideo.addEventListener('pause', updateLbPlayIcon);
+        lightboxVideo.addEventListener('volumechange', updateLbMuteIcon);
     }
 
     document.addEventListener('keydown', function(e) {

@@ -371,29 +371,38 @@ body {
     box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
 }
 
-.lightbox-close {
+.lightbox-controls {
     position: absolute;
-    top: -48px;
-    right: 0;
-    width: 40px;
-    height: 40px;
-    border: none;
-    background: rgba(255, 255, 255, 0.15);
-    color: white;
+    bottom: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 12px;
+    padding: 8px 16px;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 40px;
+    backdrop-filter: blur(8px);
+}
+
+.lightbox-ctrl-btn {
+    width: 44px;
+    height: 44px;
     border-radius: 50%;
+    border: none;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
     transition: background 0.2s ease;
-    backdrop-filter: blur(4px);
 }
 
-.lightbox-close:hover {
-    background: rgba(255, 255, 255, 0.3);
+.lightbox-ctrl-btn:hover {
+    background: rgba(255, 255, 255, 0.25);
 }
 
-.lightbox-close svg {
+.lightbox-ctrl-btn svg {
     pointer-events: none;
 }
 
