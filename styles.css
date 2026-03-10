@@ -511,6 +511,25 @@ body {
 }
 
 @media (max-width: 768px) {
+    .video-lightbox-content {
+        width: 100%;
+    }
+
+    .video-lightbox-content .promo-video {
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    .video-lightbox-content .promo-video-controls {
+        position: static;
+        display: flex;
+        justify-content: center;
+        gap: 12px;
+        padding: 12px 0;
+        background: rgba(0, 0, 0, 0.6);
+        border-radius: 0 0 12px 12px;
+    }
+
     .promo-video-wrapper {
         border-radius: 8px;
         transform: translateY(-1.5rem);
