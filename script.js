@@ -767,10 +767,12 @@ window.addEventListener('resize', () => {
     }
 
     function openLightbox() {
+        console.log('openLightbox called', { lightbox: !!lightbox, lightboxVideo: !!lightboxVideo });
         if (!lightbox || !lightboxVideo) return;
         lightboxVideo.currentTime = video.currentTime;
         lightboxVideo.muted = video.muted;
         lightbox.classList.add('active');
+        lightbox.style.display = 'flex';
         lightboxVideo.play();
         document.body.style.overflow = 'hidden';
         updateLbPlayIcon();
@@ -781,6 +783,7 @@ window.addEventListener('resize', () => {
         if (!lightbox || !lightboxVideo) return;
         video.currentTime = lightboxVideo.currentTime;
         lightbox.classList.remove('active');
+        lightbox.style.display = 'none';
         lightboxVideo.pause();
         document.body.style.overflow = '';
     }
