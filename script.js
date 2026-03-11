@@ -760,16 +760,30 @@ window.addEventListener('resize', () => {
         isLightboxOpen = false;
     }
 
-    // Fullscreen button toggles lightbox
+    // Fullscreen button: native fullscreen on mobile, lightbox on desktop
     document.addEventListener('click', function(e) {
         var btn = e.target.closest('#promo-fullscreen-btn');
         if (!btn) return;
         e.preventDefault();
         e.stopPropagation();
-        if (isLightboxOpen) {
-            closeLightbox();
+
+        if (window.innerWidth <= 768) {
+            // Mobile: use native fullscreen API
+            if (video.requestFullscreen) {
+                video.requestFullscreen();
+            } else if (video.webkitRequestFullscreen) {
+                video.webkitRequestFullscreen();
+            } else if (video.webkitEnterFullscreen) {
+                // iOS Safari fallback
+                video.webkitEnterFullscreen();
+            }
         } else {
-            openLightbox();
+            // Desktop: use lightbox overlay
+            if (isLightboxOpen) {
+                closeLightbox();
+            } else {
+                openLightbox();
+            }
         }
     });
 
