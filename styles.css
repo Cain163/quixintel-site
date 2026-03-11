@@ -511,11 +511,28 @@ body {
 }
 
 @media (max-width: 768px) {
+    .promo-section .container {
+        padding: 0 32px;
+    }
+
+    .promo-video-wrapper {
+        max-width: 85%;
+        border-radius: 8px;
+        transform: translateY(-1.5rem);
+    }
+
+    .video-lightbox {
+        align-items: flex-start;
+        padding-top: 0;
+    }
+
     .video-lightbox-content {
-        width: 100%;
+        width: 100vw;
+        max-width: 100vw;
     }
 
     .video-lightbox-content .promo-video {
+        width: 100vw;
         border-radius: 0;
         box-shadow: none;
     }
@@ -524,15 +541,9 @@ body {
         position: static;
         display: flex;
         justify-content: center;
-        gap: 12px;
-        padding: 12px 0;
-        background: rgba(0, 0, 0, 0.6);
-        border-radius: 0 0 12px 12px;
-    }
-
-    .promo-video-wrapper {
-        border-radius: 8px;
-        transform: translateY(-1.5rem);
+        gap: 16px;
+        padding: 14px 0;
+        background: rgba(0, 0, 0, 0.7);
     }
 
     .promo-control-btn {
