@@ -511,19 +511,9 @@ body {
 }
 
 @media (max-width: 768px) {
-    .promo-section .container {
-        padding: 0 32px;
-    }
-
     .promo-video-wrapper {
-        max-width: 85%;
         border-radius: 8px;
         transform: translateY(-1.5rem);
-    }
-
-    .video-lightbox {
-        align-items: flex-start;
-        padding-top: 0;
     }
 
     .video-lightbox-content {
