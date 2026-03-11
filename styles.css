@@ -511,7 +511,12 @@ body {
 }
 
 @media (max-width: 768px) {
+    .promo-section .container {
+        padding: 0 8px;
+    }
+
     .promo-video-wrapper {
+        max-width: 100%;
         border-radius: 8px;
         transform: translateY(-1.5rem);
     }
