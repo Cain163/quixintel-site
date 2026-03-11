@@ -511,10 +511,16 @@ body {
 }
 
 @media (max-width: 768px) {
+    .promo-section .container {
+        padding: 0;
+    }
+
     .promo-video-wrapper {
-        border-radius: 8px;
-        transform: translateY(-1.5rem);
+        max-width: 100%;
+        border-radius: 0;
+        transform: none;
         overflow: visible;
+        box-shadow: none;
     }
 
     .promo-video-controls {
@@ -533,6 +539,10 @@ body {
     .promo-control-btn svg {
         width: 18px;
         height: 18px;
+    }
+
+    .screenshots-section {
+        padding-top: 2rem;
     }
 
     .phone-frame {

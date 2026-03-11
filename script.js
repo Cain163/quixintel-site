@@ -769,13 +769,13 @@ window.addEventListener('resize', () => {
 
         if (window.innerWidth <= 768) {
             // Mobile: use native fullscreen API
-            if (video.requestFullscreen) {
+            if (video.webkitEnterFullscreen) {
+                // iOS Safari — must use this method for true fullscreen
+                video.webkitEnterFullscreen();
+            } else if (video.requestFullscreen) {
                 video.requestFullscreen();
             } else if (video.webkitRequestFullscreen) {
                 video.webkitRequestFullscreen();
-            } else if (video.webkitEnterFullscreen) {
-                // iOS Safari fallback
-                video.webkitEnterFullscreen();
             }
         } else {
             // Desktop: use lightbox overlay
