@@ -632,7 +632,7 @@ section {
 .section-divider {
     height: 2px;
     background: linear-gradient(90deg, transparent, var(--primary), transparent);
-    margin: 0 0 2rem;
+    margin: 0 0 3.5rem;
 }
 
 /* About Section */
