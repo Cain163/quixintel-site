@@ -608,13 +608,13 @@ body {
 
 /* Sections */
 section {
-    padding: 6rem 0;
+    padding: 4rem 0;
     background: var(--bg-dark);
 }
 
 .section-header {
     text-align: center;
-    margin-bottom: 4rem;
+    margin-bottom: 3rem;
 }
 
 .section-title {
@@ -632,7 +632,7 @@ section {
 .section-divider {
     height: 2px;
     background: linear-gradient(90deg, transparent, var(--primary), transparent);
-    margin: 4rem 0;
+    margin: 0;
 }
 
 /* About Section */
