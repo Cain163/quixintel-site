@@ -1195,8 +1195,10 @@ section {
     }
 
     .hero-cta .btn {
+        display: block;
         width: 100%;
         text-align: center;
+        box-sizing: border-box;
     }
 }
 
