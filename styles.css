@@ -1189,6 +1189,15 @@ section {
     .coverage-summary {
         gap: 2rem;
     }
+
+    .hero-cta {
+        flex-direction: column;
+    }
+
+    .hero-cta .btn {
+        width: 100%;
+        text-align: center;
+    }
 }
 
 @media (max-width: 480px) {
